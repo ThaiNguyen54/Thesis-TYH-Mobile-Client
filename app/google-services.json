@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "695357631558",
+    "project_id": "tryyourhair-835d2",
+    "storage_bucket": "tryyourhair-835d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695357631558:android:089e6a78e64336a5a16e47",
+        "android_client_info": {
+          "package_name": "com.example.tryyourhair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695357631558-tst1mm0qrclk3amufk9prhri7gjk21qo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfB1Y8Kro00jMIfi4NQ501SjoF3QyZ1vA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695357631558-tst1mm0qrclk3amufk9prhri7gjk21qo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

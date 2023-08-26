@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_camera"
+        android:enabled="true"
+        android:icon="@drawable/camera_ic"
+        android:title="Camera" />
+    <item
+        android:id="@+id/item_gallery"
+        android:enabled="false"
+        android:icon="@drawable/gallery_ic"
+        android:title="Gallery"/>
+    <item
+        android:id="@+id/item_home"
+        android:enabled="true"
+        android:icon="@drawable/home_ic"
+        android:title="Home"/>
+    <item
+        android:id="@+id/item_hairstyle"
+        android:enabled="true"
+        android:icon="@drawable/hair2_ic"
+        android:title="Hairstyle"/>
+
+</menu>

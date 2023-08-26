@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.relay' version '0.3.06'
+    id 'com.google.gms.google-services'
+
+}
+
+android {
+    namespace 'com.example.tryyourhair'
+    compileSdk 33
+
+    sourceSets {
+        main {
+            assets {
+                srcDir('src/main/ui-packages')
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.example.tryyourhair"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':OpenCV')
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.airbnb.android:lottie:6.0.0'
+
+
+    // Add Face Detection ML Kit
+    implementation 'com.google.mlkit:face-detection:16.1.5'
+    implementation project(path: ':OpenCV')
+
+    // Add Glide
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    // Add Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+
+    // Add GSON
+    implementation('com.google.code.gson:gson:2.10.1')
+
+    // Add Cloudinary
+    implementation 'com.cloudinary:cloudinary-android:2.3.1'
+
+    // Add mqtt
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+}

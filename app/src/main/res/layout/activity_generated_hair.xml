@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GeneratedHair">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_loading_animation"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.498"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/scan_face" />
+
+        <TextView
+            android:id="@+id/txt_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your hair is in generation process "
+            android:lines="2"
+            app:layout_constraintBottom_toTopOf="@id/txt_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lottie_loading_animation"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/txt_2"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:text="It will take a little bit of time"
+            android:lines="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_1"
+            android:gravity="center"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_generated_hair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.359"
+        style="?attr/materialCardViewElevatedStyle"
+        android:visibility="invisible">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_generated_hair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:id="@+id/img_generated_hair"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/img_ex1" />
+
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_home"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        app:icon="@drawable/home" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_download"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/download" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_share"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        app:icon="@drawable/share" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

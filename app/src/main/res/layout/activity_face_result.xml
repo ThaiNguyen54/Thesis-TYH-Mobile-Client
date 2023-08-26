@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FaceResult">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:id="@+id/face_img_view"
+        android:scaleType="fitCenter"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:id="@+id/scan_effect"
+        app:lottie_rawRes="@raw/red_scanner"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:alpha="0.6"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="629dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="3dp">
+
+           <Button
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Retake"
+               android:drawableRight="@drawable/camera_icon"
+               android:paddingRight="50dp"
+               android:paddingLeft="50dp"
+               android:gravity="center_vertical|center_horizontal"
+               android:id="@+id/btn_retake"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/arrow_forward_icon"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="Confirm"
+                android:layout_marginLeft="15dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</FrameLayout>

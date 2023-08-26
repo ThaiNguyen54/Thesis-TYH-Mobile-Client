@@ -1,0 +1,8 @@
+org.opencv.test.OpenCV-androidTest-0 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\generated\res\resValues\androidTest\debug
+org.opencv.test.OpenCV-androidTest-1 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\generated\res\rs\androidTest\debug
+org.opencv.test.OpenCV-mergeDebugAndroidTestResources-2 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+org.opencv.test.OpenCV-mergeDebugAndroidTestResources-3 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+org.opencv.test.OpenCV-merged_res-4 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\intermediates\merged_res\debugAndroidTest
+org.opencv.test.OpenCV-packaged_res-5 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\intermediates\packaged_res\debug
+org.opencv.test.OpenCV-androidTest-6 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\src\androidTest\res
+org.opencv.test.OpenCV-androidTestDebug-7 D:\Study\Cirriculums\Mobile Developement\TT\Thesis class\Final Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\src\androidTestDebug\res

@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\Study\Cirriculums\Mobile-Developement\TT\Thesis-class\Final-Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\.cxx\Debug\3o6y1h26\x86_64'
+ninja: no work to do.

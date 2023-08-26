@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreen">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        style="?attr/materialCardViewFilledStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Media -->
+            <LinearLayout
+                android:id="@+id/constraint_start_generate"
+                android:layout_width="match_parent"
+                android:layout_height="745dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_ex1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingTop="50dp"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:id="@+id/img_confirmed_face"
+                        android:layout_width="270dp"
+                        android:layout_height="288dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/img_ex1" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/plus_ic"
+                    app:layout_constraintBottom_toTopOf="@+id/card_ex2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_ex1" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_ex2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:id="@+id/img_chose_hairstyle"
+                        android:layout_width="270dp"
+                        android:layout_height="288dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/img_ex2" />
+
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_generate"
+                    style="?attr/materialIconButtonFilledTonalStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:icon="@drawable/cycle"
+                    app:iconSize="60dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+<!--    <EditText-->
+<!--        android:layout_width="400dp"-->
+<!--        android:layout_height="500dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:id="@+id/txt_token"/>-->
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:menu="@menu/bottom_navigation_menu"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
