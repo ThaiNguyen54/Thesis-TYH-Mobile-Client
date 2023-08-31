@@ -85,6 +85,18 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
             trending = (RatingBar) itemView.findViewById(R.id.trending_star);
             detail_btn = (Button) itemView.findViewById(R.id.btn_detail);
 
+            detail_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerViewInterFace != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            recyclerViewInterFace.onDetailClick(position);
+                        }
+                    }
+                }
+            });
+
             img_hairstyle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

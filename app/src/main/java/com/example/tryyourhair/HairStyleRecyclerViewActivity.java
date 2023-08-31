@@ -5,15 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bumptech.glide.Glide;
 import com.example.tryyourhair.CustomAdapter.HairStyleAdapter;
 import com.example.tryyourhair.Interface.RecyclerViewInterFace;
 import com.example.tryyourhair.Models.HairStyle;
@@ -21,6 +24,7 @@ import com.example.tryyourhair.Models.HairstyleDataCallFromAPI;
 import com.example.tryyourhair.RetrofitInstance.RetrofitClient;
 import com.example.tryyourhair.RetrofitInterface.Methods;
 import com.example.tryyourhair.Singleton.Singleton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +38,12 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
     private ImageView img_home;
     Singleton singleton;
 
+    Dialog dialog;
+    TextView txt_title;
+    TextView txt_des;
+    TextView txt_celeb;
+    ImageView detail_img;
+
 
 
     @Override
@@ -43,6 +53,9 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
 
         img_home = findViewById(R.id.img_home);
         singleton = Singleton.getInstance();
+
+        dialog = new Dialog(HairStyleRecyclerViewActivity.this);
+
 
         img_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,5 +142,18 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
         singleton.setChoseHairURL(ChoseHairURL);
         singleton.setChoseHairstyleName(ChoseHairName);
         startActivity(intent);
+    }
+
+    @Override
+    public void onDetailClick(int position) {
+        dialog.setContentView(R.layout.dialog_hairstyle_detail);
+        txt_title = (TextView) dialog.findViewById(R.id.dialog_txt_title);
+        txt_des = (TextView) dialog.findViewById(R.id.dialog_txt_description);
+        txt_celeb = (TextView) dialog.findViewById(R.id.dialog_txt_celeb);
+        detail_img = (ImageView) dialog.findViewById(R.id.dialog_img);
+        txt_title.setText(listHairStyle.get(position).getName());
+        txt_des.setText(listHairStyle.get(position).getDes());
+        Glide.with(HairStyleRecyclerViewActivity.this).load(listHairStyle.get(position).getUrl()).into(detail_img);
+        dialog.show();
     }
 }
