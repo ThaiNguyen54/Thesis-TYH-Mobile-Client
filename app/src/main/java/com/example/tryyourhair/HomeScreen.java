@@ -60,12 +60,12 @@ public class HomeScreen extends AppCompatActivity {
     ImageView confirmed_face_img;
     Singleton singleton;
     Button btn_generate;
-    final String SERVER_IP = "192.168.1.5";
-    final String BROKER_URL = "tcp://192.168.1.3:1883";
-    final String CLIENT_ID = "android";
-    final int SERVER_PORT = 9000;
-    final int CLIENT_PORT = 9999;
-    final int BUFFER_SIZE = 65536;
+//    final String SERVER_IP = "192.168.1.5";
+//    final String BROKER_URL = "tcp://192.168.1.3:1883";
+//    final String CLIENT_ID = "android";
+//    final int SERVER_PORT = 9000;
+//    final int CLIENT_PORT = 9999;
+//    final int BUFFER_SIZE = 65536;
     Gson gson = new Gson();
 
     @Override
@@ -139,10 +139,7 @@ public class HomeScreen extends AppCompatActivity {
                             try {
 //                                // Initiate a socket instance
 //                                Socket socket = new Socket(SERVER_IP, SERVER_PORT);
-//
-//
 //                                OutputStream outputStream = socket.getOutputStream();
-
 
                                 // Encode image for sending to server
                                 byte[] Confirmed_Face_ByteArray = singleton.getConfirmedFaceImage();
@@ -212,14 +209,14 @@ public class HomeScreen extends AppCompatActivity {
 //        });
 
         if(singleton.getChoseHair() == false) {
-            chose_hairstyle_img.setImageResource(R.drawable.img_ex2);
+            chose_hairstyle_img.setImageResource(R.drawable.user_placeholder);
         }
         else if (singleton.getChoseHair() == true) {
             Glide.with(this).load(singleton.getChoseHairURL()).into(chose_hairstyle_img);
         }
 
         if(singleton.getConfirmedFace() == false) {
-            confirmed_face_img.setImageResource(R.drawable.img_ex1);
+            confirmed_face_img.setImageResource(R.drawable.hairstyle_placeholder);
         }
         else if (singleton.getConfirmedFace() == true) {
             byte[] Confirmed_Face_ByteArray = singleton.getConfirmedFaceImage();

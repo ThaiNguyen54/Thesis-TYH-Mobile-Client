@@ -5,12 +5,14 @@ public class HairStyle {
     private String _id;
     private String Url;
     private String Des;
+    private Integer Trending;
 
-    public HairStyle(String Name, String _id, String url, String des) {
+    public HairStyle(String Name, String _id, String url, String des, Integer trending) {
         this._id = _id;
         this.Name = Name;
         this.Url = url;
         this.Des = des;
+        this.Trending = trending;
     }
 
     public String getName() {
@@ -44,4 +46,7 @@ public class HairStyle {
     public void setDes(String description) {
         this.Des = description;
     }
+
+    public Integer getTrending() {return Trending;}
+    public void setTrending(Integer trending) {this.Trending = trending;}
 }

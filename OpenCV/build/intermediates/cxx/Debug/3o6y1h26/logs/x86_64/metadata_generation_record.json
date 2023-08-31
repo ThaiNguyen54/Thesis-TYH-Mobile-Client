@@ -2,7 +2,7 @@
   {
     "level_": 0,
     "message_": "Start JSON generation. Platform version: 21 min SDK version: x86_64",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\TT\\Thesis-class\\Final-Project\\Mobile-Dev-Final-Project\\TryYourHair\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
     "tag_": "debug|x86_64",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -11,12 +11,12 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 1181855896
+    "memoizedHashCode": 1582159054
   },
   {
     "level_": 0,
-    "message_": "JSON \u0027D:\\Study\\Cirriculums\\Mobile-Developement\\TT\\Thesis-class\\Final-Project\\Mobile-Dev-Final-Project\\TryYourHair\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\\android_gradle_build.json\u0027 was up-to-date",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\TT\\Thesis-class\\Final-Project\\Mobile-Dev-Final-Project\\TryYourHair\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "message_": "rebuilding JSON D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\\android_gradle_build.json due to:",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
     "tag_": "debug|x86_64",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -25,12 +25,152 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 70267956
+    "memoizedHashCode": -1324123271
+  },
+  {
+    "level_": 0,
+    "message_": "- a hard configure file changed, will remove stale configuration folder",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1200000907
+  },
+  {
+    "level_": 0,
+    "message_": "  - D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\\metadata_generation_command.txt (LAST_MODIFIED_CHANGED)",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1342541694
+  },
+  {
+    "level_": 0,
+    "message_": "removing stale contents from \u0027D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\u0027",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1008216707
+  },
+  {
+    "level_": 0,
+    "message_": "created folder \u0027D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\u0027",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1771241743
+  },
+  {
+    "level_": 0,
+    "message_": "executing cmake @echo off\n\"C:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\libcxx_helper\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003dx86_64\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003dx86_64\" ^\n  \"-DANDROID_NDK\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\3o6y1h26\\\\obj\\\\x86_64\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\3o6y1h26\\\\obj\\\\x86_64\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\.cxx\\\\Debug\\\\3o6y1h26\\\\x86_64\" ^\n  -GNinja ^\n  \"-DANDROID_STL\u003dc++_shared\"\n",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1870633604
+  },
+  {
+    "level_": 0,
+    "message_": "@echo off\n\"C:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\cmake.exe\" ^\n  \"-HD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\libcxx_helper\" ^\n  \"-DCMAKE_SYSTEM_NAME\u003dAndroid\" ^\n  \"-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\" ^\n  \"-DCMAKE_SYSTEM_VERSION\u003d21\" ^\n  \"-DANDROID_PLATFORM\u003dandroid-21\" ^\n  \"-DANDROID_ABI\u003dx86_64\" ^\n  \"-DCMAKE_ANDROID_ARCH_ABI\u003dx86_64\" ^\n  \"-DANDROID_NDK\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_ANDROID_NDK\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\" ^\n  \"-DCMAKE_TOOLCHAIN_FILE\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\23.1.7779620\\\\build\\\\cmake\\\\android.toolchain.cmake\" ^\n  \"-DCMAKE_MAKE_PROGRAM\u003dC:\\\\Users\\\\Thai\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\cmake\\\\3.22.1\\\\bin\\\\ninja.exe\" ^\n  \"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\3o6y1h26\\\\obj\\\\x86_64\" ^\n  \"-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\build\\\\intermediates\\\\cxx\\\\Debug\\\\3o6y1h26\\\\obj\\\\x86_64\" ^\n  \"-DCMAKE_BUILD_TYPE\u003dDebug\" ^\n  \"-BD:\\\\Study\\\\Thesis\\\\Thesis-TYH-Mobile-Client\\\\OpenCV\\\\.cxx\\\\Debug\\\\3o6y1h26\\\\x86_64\" ^\n  -GNinja ^\n  \"-DANDROID_STL\u003dc++_shared\"\n",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -2007992517
+  },
+  {
+    "level_": 0,
+    "message_": "Exiting generation of D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\\compile_commands.json.bin normally",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1467859865
+  },
+  {
+    "level_": 0,
+    "message_": "done executing cmake",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 69302862
+  },
+  {
+    "level_": 0,
+    "message_": "deleted unexpected build output D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\build\\intermediates\\cxx\\Debug\\3o6y1h26\\obj\\x86_64\\libc++_shared.so in incremental regenerate",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 358351400
+  },
+  {
+    "level_": 0,
+    "message_": "hard linked D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\Debug\\3o6y1h26\\x86_64\\compile_commands.json to D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\.cxx\\tools\\debug\\x86_64\\compile_commands.json",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|x86_64",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 1534290107
   },
   {
     "level_": 0,
     "message_": "JSON generation completed without problems",
-    "file_": "D:\\Study\\Cirriculums\\Mobile-Developement\\TT\\Thesis-class\\Final-Project\\Mobile-Dev-Final-Project\\TryYourHair\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "file_": "D:\\Study\\Thesis\\Thesis-TYH-Mobile-Client\\OpenCV\\libcxx_helper\\CMakeLists.txt",
     "tag_": "debug|x86_64",
     "diagnosticCode_": 0,
     "memoizedIsInitialized": 1,
@@ -39,6 +179,6 @@
       "fieldsDescending": {}
     },
     "memoizedSize": -1,
-    "memoizedHashCode": 1607072788
+    "memoizedHashCode": 2007375946
   }
 ]

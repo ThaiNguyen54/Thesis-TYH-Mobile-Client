@@ -44,8 +44,7 @@
                         android:id="@+id/img_confirmed_face"
                         android:layout_width="270dp"
                         android:layout_height="288dp"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/img_ex1" />
+                        android:scaleType="centerCrop" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -69,8 +68,7 @@
                         android:id="@+id/img_chose_hairstyle"
                         android:layout_width="270dp"
                         android:layout_height="288dp"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/img_ex2" />
+                        android:scaleType="centerCrop" />
 
 
                 </androidx.cardview.widget.CardView>

@@ -76,7 +76,9 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
                                     Hairstyles.get(i).getName(),
                                     Hairstyles.get(i).get_id(),
                                     Hairstyles.get(i).getUrl(),
-                                    Hairstyles.get(i).getDes()));
+                                    Hairstyles.get(i).getDes(),
+                                    Hairstyles.get(i).getTrending()
+                            ));
 
                             hairStyleAdapter = new HairStyleAdapter(
                                     HairStyleRecyclerViewActivity.this,
@@ -114,6 +116,11 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
 
     @Override
     public void onItemClick(int position) {
+
+    }
+
+    @Override
+    public void onImageItemClick(int position) {
         Intent intent = new Intent(HairStyleRecyclerViewActivity.this, HomeScreen.class);
         String ChoseHairURL = listHairStyle.get(position).getUrl();
         String ChoseHairName = listHairStyle.get(position).getName();

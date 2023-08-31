@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -56,6 +57,7 @@ public class GeneratedHair extends AppCompatActivity {
             singleton.setReceivedGeneratedHair(false);
             constraintLayout_loading.setVisibility(View.INVISIBLE);
             constraintLayout_generated_hair.setVisibility(View.VISIBLE);
+            Log.d("URL", singleton.getGeneratedURL());
             Glide.with(this).load(singleton.getGeneratedURL()).into(img_generated_hair);
         }
 

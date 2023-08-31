@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -50,9 +52,12 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
 
         // bind data to view holder
 //        holder.url.setText(hairStyle.getUrl());
-        holder.des.setText(hairStyle.getDes());
+//        holder.des.setText(hairStyle.getDes());
         holder.name.setText(hairStyle.getName());
         Glide.with(this.context).load(hairStyle.getUrl()).into(holder.img_hairstyle);
+        if (Integer.valueOf(hairStyle.getTrending()) == 1) {
+           holder.trending.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -68,13 +73,29 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
         private TextView url;
         private TextView des;
         private ImageView img_hairstyle;
+        private RatingBar trending;
+        private Button detail_btn;
 
         public HairStyleViewHolder(View itemView) {
             super(itemView);
             img_hairstyle = (ImageView) itemView.findViewById(R.id.img_hairstyle);
             url = (TextView) itemView.findViewById(R.id.txt_url);
-            des = (TextView) itemView.findViewById(R.id.txt_hairdes);
+//            des = (TextView) itemView.findViewById(R.id.txt_hairdes);
             name = (TextView) itemView.findViewById(R.id.txt_hairstyle_name) ;
+            trending = (RatingBar) itemView.findViewById(R.id.trending_star);
+            detail_btn = (Button) itemView.findViewById(R.id.btn_detail);
+
+            img_hairstyle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerViewInterFace != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            recyclerViewInterFace.onImageItemClick(position);
+                        }
+                    }
+                }
+            });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

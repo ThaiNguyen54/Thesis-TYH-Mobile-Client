@@ -35,6 +35,10 @@ public class HairstyleDataCallFromAPI {
         public String _id;
         public String Url;
         public String Des;
+        public Integer Trending;
+
+        public Integer getTrending() {return  Trending;}
+        public void setTrending(Integer trending) {Trending = trending;}
 
         public String getName() {
             return Name;

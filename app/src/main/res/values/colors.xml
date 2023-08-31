@@ -10,4 +10,5 @@
     <color name="card_bg_1">#D5B4B4</color>
     <color name="card_title_1">#472D2D</color>
     <color name="card_secondary_1">#704F4F</color>
+    <color name="yellow_star">#FFD966</color>
 </resources>

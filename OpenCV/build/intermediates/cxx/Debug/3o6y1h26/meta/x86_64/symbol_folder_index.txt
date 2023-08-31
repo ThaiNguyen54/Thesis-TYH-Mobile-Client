@@ -1,1 +1,1 @@
-D:\Study\Cirriculums\Mobile-Developement\TT\Thesis-class\Final-Project\Mobile-Dev-Final-Project\TryYourHair\OpenCV\build\intermediates\cxx\Debug\3o6y1h26\obj\x86_64
+D:\Study\Thesis\Thesis-TYH-Mobile-Client\OpenCV\build\intermediates\cxx\Debug\3o6y1h26\obj\x86_64

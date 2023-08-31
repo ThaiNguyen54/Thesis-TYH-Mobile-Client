@@ -301,17 +301,17 @@ public class OpenCamera extends CameraActivity {
 //                                                });
 
                                             }
-                                            Utils.matToBitmap(mat_processing_face, processed_bitmap);
-                                            runOnUiThread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    try{
-                                                        img_processing_face.setImageBitmap(processed_bitmap);
-                                                    } catch (Exception e) {
-                                                        e.printStackTrace();
-                                                    }
-                                                }
-                                            });
+//                                            Utils.matToBitmap(mat_processing_face, processed_bitmap);
+//                                            runOnUiThread(new Runnable() {
+//                                                @Override
+//                                                public void run() {
+//                                                    try{
+//                                                        img_processing_face.setImageBitmap(processed_bitmap);
+//                                                    } catch (Exception e) {
+//                                                        e.printStackTrace();
+//                                                    }
+//                                                }
+//                                            });
                                         }
                                     }
                                 })
