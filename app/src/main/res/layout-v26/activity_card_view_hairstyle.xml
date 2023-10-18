@@ -52,6 +52,26 @@
                 android:textColor="@color/card_title_1"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/txt_celeb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Celebrity"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                />
+
+            <TextView
+                android:id="@+id/txt_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="Category"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                />
 
             <RatingBar
                 android:id="@+id/trending_star"
@@ -70,6 +90,8 @@
                 android:visibility="invisible"
                 android:tooltipText="Trending Hairstyle"
                 android:max="1" />
+
+
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="wrap_content"

@@ -9,9 +9,12 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,7 @@ import com.example.tryyourhair.RetrofitInstance.RetrofitClient;
 import com.example.tryyourhair.RetrofitInterface.Methods;
 import com.example.tryyourhair.Singleton.Singleton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.search.SearchBar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +40,7 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
     private HairStyleAdapter hairStyleAdapter;
     private List<HairStyle> listHairStyle;
     private ImageView img_home;
+    private androidx.appcompat.widget.SearchView searchView;
     Singleton singleton;
 
     Dialog dialog;
@@ -45,7 +50,6 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
     ImageView detail_img;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,21 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
 
         img_home = findViewById(R.id.img_home);
         singleton = Singleton.getInstance();
+        searchView = findViewById(R.id.search_view);
+        searchView.clearFocus();
+
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
 
         dialog = new Dialog(HairStyleRecyclerViewActivity.this);
 
@@ -84,13 +103,16 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
                         for (int i = 0; i < Hairstyles.size(); i++) {
                             Log.d("TEST",  Hairstyles.get(i).get_id());
                             Log.d("NAME", Hairstyles.get(i).getName());
+                            Log.d("CELEB", Hairstyles.get(i).getCelebrity());
 
                             listHairStyle.add(new HairStyle(
                                     Hairstyles.get(i).getName(),
                                     Hairstyles.get(i).get_id(),
                                     Hairstyles.get(i).getUrl(),
                                     Hairstyles.get(i).getDes(),
-                                    Hairstyles.get(i).getTrending()
+                                    Hairstyles.get(i).getTrending(),
+                                    Hairstyles.get(i).getCelebrity(),
+                                    Hairstyles.get(i).getCategory()
                             ));
 
                             hairStyleAdapter = new HairStyleAdapter(
@@ -135,8 +157,8 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
     @Override
     public void onImageItemClick(int position) {
         Intent intent = new Intent(HairStyleRecyclerViewActivity.this, HomeScreen.class);
-        String ChoseHairURL = listHairStyle.get(position).getUrl();
-        String ChoseHairName = listHairStyle.get(position).getName();
+        String ChoseHairURL = hairStyleAdapter.getListHairStyle().get(position).getUrl();
+        String ChoseHairName = hairStyleAdapter.getListHairStyle().get(position).getName();
 
         singleton.setChoseHair(true);
         singleton.setChoseHairURL(ChoseHairURL);
@@ -151,9 +173,33 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
         txt_des = (TextView) dialog.findViewById(R.id.dialog_txt_description);
         txt_celeb = (TextView) dialog.findViewById(R.id.dialog_txt_celeb);
         detail_img = (ImageView) dialog.findViewById(R.id.dialog_img);
-        txt_title.setText(listHairStyle.get(position).getName());
-        txt_des.setText(listHairStyle.get(position).getDes());
-        Glide.with(HairStyleRecyclerViewActivity.this).load(listHairStyle.get(position).getUrl()).into(detail_img);
+        txt_title.setText(hairStyleAdapter.getListHairStyle().get(position).getName());
+        txt_des.setText(hairStyleAdapter.getListHairStyle().get(position).getDes());
+        txt_celeb.setText("");
+        Glide.with(HairStyleRecyclerViewActivity.this).load(hairStyleAdapter.getListHairStyle().get(position).getUrl()).into(detail_img);
         dialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void filterList(String text) {
+        List<HairStyle> filteredHairstyle = new ArrayList<>();
+        for (HairStyle hairStyle : listHairStyle) {
+            if (hairStyle.getCelebrity().toLowerCase().contains(text.toLowerCase())) {
+                filteredHairstyle.add(hairStyle);
+            }
+        }
+
+        if (filteredHairstyle.isEmpty()) {
+            Toast.makeText(this, "No hairstyle found", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            hairStyleAdapter.setListHairStyle(filteredHairstyle);
+            rvHairStyle.setAdapter(hairStyleAdapter);
+        }
     }
 }

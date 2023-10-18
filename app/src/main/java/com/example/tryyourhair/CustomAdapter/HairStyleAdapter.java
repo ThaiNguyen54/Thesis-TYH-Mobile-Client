@@ -37,6 +37,14 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
         this.recyclerViewInterFace = recyclerViewInterFace;
     }
 
+    public void setListHairStyle(List<HairStyle> listHairStyle) {
+        this.listHairStyle = listHairStyle;
+    }
+
+    public List<HairStyle> getListHairStyle() {
+        return this.listHairStyle;
+    }
+
     @NonNull
     @Override
     public HairStyleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -54,6 +62,8 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
 //        holder.url.setText(hairStyle.getUrl());
 //        holder.des.setText(hairStyle.getDes());
         holder.name.setText(hairStyle.getName());
+        holder.celeb.setText(hairStyle.getCelebrity());
+        holder.category.setText(hairStyle.getCategory());
         Glide.with(this.context).load(hairStyle.getUrl()).into(holder.img_hairstyle);
         if (Integer.valueOf(hairStyle.getTrending()) == 1) {
            holder.trending.setVisibility(View.VISIBLE);
@@ -72,6 +82,8 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
         private TextView name;
         private TextView url;
         private TextView des;
+        private TextView celeb;
+        private TextView category;
         private ImageView img_hairstyle;
         private RatingBar trending;
         private Button detail_btn;
@@ -84,6 +96,8 @@ public class HairStyleAdapter  extends RecyclerView.Adapter<HairStyleAdapter.Hai
             name = (TextView) itemView.findViewById(R.id.txt_hairstyle_name) ;
             trending = (RatingBar) itemView.findViewById(R.id.trending_star);
             detail_btn = (Button) itemView.findViewById(R.id.btn_detail);
+            celeb = (TextView) itemView.findViewById(R.id.txt_celeb);
+            category = (TextView) itemView.findViewById(R.id.txt_category);
 
             detail_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
