@@ -7,15 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.nio.channels.Pipe;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +34,11 @@ import com.example.tryyourhair.RetrofitInterface.Methods;
 import com.example.tryyourhair.Singleton.Singleton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.search.SearchBar;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,7 +58,6 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
     TextView txt_des;
     TextView txt_celeb;
     ImageView detail_img;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

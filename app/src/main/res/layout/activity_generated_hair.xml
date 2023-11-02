@@ -111,13 +111,6 @@
                         app:icon="@drawable/home" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_download"
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        app:icon="@drawable/download" />
-
-                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_share"
                         style="?attr/borderlessButtonStyle"
                         android:layout_width="50dp"

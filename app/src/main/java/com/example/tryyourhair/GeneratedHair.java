@@ -3,6 +3,7 @@ package com.example.tryyourhair;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -19,6 +20,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.tryyourhair.Singleton.Singleton;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
@@ -33,19 +39,21 @@ public class GeneratedHair extends AppCompatActivity {
     Singleton singleton;
     ImageView img_generated_hair;
     Button btn_home;
-    Button btn_download;
     Button btn_share;
+    Dialog qrDialog;
+    ImageView generated_hair_qr_code;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generated_hair);
+        qrDialog = new Dialog(GeneratedHair.this);
 
         singleton = Singleton.getInstance();
         constraintLayout_loading = findViewById(R.id.constraint_layout_loading);
         constraintLayout_generated_hair = findViewById(R.id.constraint_layout_generated_hair);
         img_generated_hair = findViewById(R.id.img_generated_hair);
-        btn_download = findViewById(R.id.btn_download);
         btn_home = findViewById(R.id.btn_home);
         btn_share = findViewById(R.id.btn_share);
 
@@ -69,47 +77,30 @@ public class GeneratedHair extends AppCompatActivity {
             }
         });
 
-        btn_download.setOnClickListener(new View.OnClickListener() {
+        btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create unique filename for the captured image
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyy_HH-mm-ss");
-                String currentDateTime = dateFormat.format(new Date());
-
-                String fileName = getApplicationContext().getFilesDir().getPath()
-                        + "/TYH-Generated-YourPhoto"
-                        + currentDateTime
-                        + ".jpg";
-
-                String fileNameForSave = "THY_" + Calendar.getInstance().getTime();
-
-                // Save the bitmap to the gallery
-                OutputStream fileOutputStream;
-
-                img_generated_hair.setDrawingCacheEnabled(true);
-                img_generated_hair.buildDrawingCache();
-                Bitmap savingBitmap = img_generated_hair.getDrawingCache();
-                try{
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        ContentResolver resolver = getContentResolver();
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileNameForSave);
-                        contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
-                        Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-                        fileOutputStream = resolver.openOutputStream(Objects.requireNonNull(imageUri));
-                        savingBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                        Objects.requireNonNull(fileOutputStream);
-                    }
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
+                try {
+                    qrDialog.setContentView(R.layout.dialog_qrcode);
+                generated_hair_qr_code = (ImageView) qrDialog.findViewById(R.id.qrcode_generated_hair);
+                // Generate qr code
+                String text = singleton.getGeneratedURL().trim();
+                MultiFormatWriter writer = new MultiFormatWriter();
+                try {
+                    BitMatrix matrix = writer.encode(text, BarcodeFormat.QR_CODE, 300, 300);
+                    BarcodeEncoder encoder = new BarcodeEncoder();
+                    Bitmap bitmap = encoder.createBitmap(matrix);
+                    generated_hair_qr_code.setImageBitmap(bitmap);
+                } catch (WriterException e) {
+                    e.printStackTrace();
                 }
-                img_generated_hair.setDrawingCacheEnabled(false);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(GeneratedHair.this, "Generated Image Saved", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    qrDialog.show();
+
+                } catch (Exception e) {
+                    Log.d("ERROR", e.toString());
+                }
+
+
             }
         });
     }

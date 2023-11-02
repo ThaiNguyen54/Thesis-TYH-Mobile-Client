@@ -14,4 +14,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/Study/Cirriculums/Mobile-Developement/TT/Thesis-class/Final-Project/Mobile-Dev-Final-Project/TryYourHair/OpenCV/.cxx/RelWithDebInfo/256e1472/x86
+-- Build files have been written to: D:/Study/Thesis/Thesis-TYH-Mobile-Client/OpenCV/.cxx/RelWithDebInfo/256e1472/x86
