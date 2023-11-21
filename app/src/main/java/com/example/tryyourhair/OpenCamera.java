@@ -419,22 +419,22 @@ public class OpenCamera extends CameraActivity {
                    matrix,
                    true);
 
-           // Save the bitmap to the gallery
-           OutputStream fileOutputStream;
-           try{
-               if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                   ContentResolver resolver = getContentResolver();
-                   ContentValues contentValues = new ContentValues();
-                   contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileNameForSave);
-                   contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
-                   Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-                   fileOutputStream = resolver.openOutputStream(Objects.requireNonNull(imageUri));
-                   rotatedBimap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                   Objects.requireNonNull(fileOutputStream);
-               }
-           } catch (FileNotFoundException e) {
-               throw new RuntimeException(e);
-           }
+//           // Save the bitmap to the gallery
+//           OutputStream fileOutputStream;
+//           try{
+//               if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                   ContentResolver resolver = getContentResolver();
+//                   ContentValues contentValues = new ContentValues();
+//                   contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileNameForSave);
+//                   contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
+//                   Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+//                   fileOutputStream = resolver.openOutputStream(Objects.requireNonNull(imageUri));
+//                   rotatedBimap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+//                   Objects.requireNonNull(fileOutputStream);
+//               }
+//           } catch (FileNotFoundException e) {
+//               throw new RuntimeException(e);
+//           }
 
            // Convert bitmap to array
            ByteArrayOutputStream stream = new ByteArrayOutputStream();
