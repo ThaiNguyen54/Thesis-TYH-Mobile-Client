@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,26 +8,36 @@
 
 
     <ImageView
+        android:id="@+id/face_img_view"
         android:layout_width="match_parent"
         android:layout_height="630dp"
-        android:id="@+id/face_img_view"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/scan_effect"
         android:layout_width="match_parent"
         android:layout_height="630dp"
-        android:id="@+id/scan_effect"
-        app:lottie_rawRes="@raw/red_scanner"
+        android:alpha="0.6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/face_img_view"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        android:alpha="0.6"/>
+        app:lottie_rawRes="@raw/red_scanner" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="629dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:gravity="center">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/face_img_view">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -35,15 +45,15 @@
             android:layout_weight="1"
             android:paddingLeft="3dp">
 
-           <Button
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Retake"
-               android:drawableRight="@drawable/camera_icon"
-               android:paddingRight="50dp"
-               android:paddingLeft="50dp"
-               android:gravity="center_vertical|center_horizontal"
-               android:id="@+id/btn_retake"/>
+            <Button
+                android:id="@+id/btn_retake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/camera_icon"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="Retake" />
 
         </LinearLayout>
 
@@ -56,16 +66,16 @@
                 android:id="@+id/btn_confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:drawableRight="@drawable/arrow_forward_icon"
                 android:gravity="center_vertical|center_horizontal"
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
-                android:text="Confirm"
-                android:layout_marginLeft="15dp"/>
+                android:text="Confirm" />
 
         </LinearLayout>
     </LinearLayout>
 
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

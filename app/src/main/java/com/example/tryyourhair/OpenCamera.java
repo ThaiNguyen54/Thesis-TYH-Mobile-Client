@@ -2,6 +2,7 @@ package com.example.tryyourhair;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Guideline;
 
 import android.Manifest;
 import android.animation.Animator;
@@ -77,6 +78,10 @@ public class OpenCamera extends CameraActivity {
     ImageView img_processing_face;
     boolean isTakeImage = false;
     LottieAnimationView animationViewCountDown;
+    Guideline roi_vertical1;
+    Guideline roi_vertical2;
+    Guideline roi_horizontal1;
+    Guideline roi_horizontal2;
 
 
     @Override
@@ -89,7 +94,10 @@ public class OpenCamera extends CameraActivity {
 //        face_roi = findViewById(R.id.face_roi);
         img_processing_face = findViewById(R.id.img_processing_face);
 
-
+        roi_vertical1 = findViewById(R.id.roi_guideline1);
+        roi_vertical2 = findViewById(R.id.roi_guideline2);
+        roi_horizontal1 = findViewById(R.id.roi_horizontal_guideline1);
+        roi_horizontal2 = findViewById(R.id.roi_horizontal_guideline2);
 
 
         // Set camera fullscreen
@@ -162,19 +170,20 @@ public class OpenCamera extends CameraActivity {
                                 bitmap_processing.getHeight() / SCALING_FACTOR,
                                 false);
 
-//                        // Get size of cameraBridgeViewBase
-//                        int cameraH = cameraBridgeViewBase.getHeight();
-//                        int cameraW = cameraBridgeViewBase.getWidth();
-//                        int camera_size = cameraH * cameraW;
+                        // Get size of cameraBridgeViewBase
+                        int cameraH = cameraBridgeViewBase.getHeight();
+                        int cameraW = cameraBridgeViewBase.getWidth();
+                        int camera_size = cameraH * cameraW;
+
+                        // Get size of processing_face_view
+                        int processing_face_H = img_processing_face.getHeight();
+                        int processing_face_W = img_processing_face.getWidth();
+                        int processing_face_size = processing_face_H * processing_face_W;
 //
-//                        // Get size of processing_face_view
-//                        int processing_face_H = img_processing_face.getHeight();
-//                        int processing_face_W = img_processing_face.getWidth();
-//                        int processing_face_size = processing_face_H * processing_face_W;
-//
-//                        // Calculate scale factor
-//                        int x_scale_factor = cameraW / processing_face_W;
-//                        int y_scale_factor = cameraW / processing_face_H;
+                        // Calculate scale factor
+                        int x_scale_factor = cameraW / processing_face_W;
+                        int y_scale_factor = cameraW / processing_face_H;
+                        int size_scale_factor = camera_size / processing_face_size;
 
 
 
@@ -191,17 +200,19 @@ public class OpenCamera extends CameraActivity {
 //                                        int left = left_roi / x_scale_factor;
 //                                        int right = right_roi / x_scale_factor;
 
-                                        int processing_face_H = img_processing_face.getHeight();
-                                        int processing_face_W = img_processing_face.getWidth();
-                                        int processing_face_size = processing_face_H * processing_face_W;
+//                                        int top = processing_face_H - 650;
+//                                        int bottom = processing_face_H - 10;
+//                                        int left = processing_face_W - 400;
+//                                        int right = processing_face_W + 100;
 
-                                        int top = processing_face_H - 650;
-                                        int bottom = processing_face_H - 10;
-                                        int left = processing_face_W - 400;
-                                        int right = processing_face_W + 100;
+                                        int left = (int) ((int) roi_vertical1.getX() / x_scale_factor);
+                                        int top = (int) (roi_horizontal1.getY() / size_scale_factor) + 150;
+                                        int bottom = (int) ((int) roi_horizontal2.getY() / y_scale_factor) - 600;
+                                        int right = (int) ((int) roi_vertical2.getX() / x_scale_factor) + 200;
 
-
-
+                                        Log.d("ROI L", String.valueOf(roi_vertical1.getX()));
+                                        Log.d("ROI R", String.valueOf(roi_vertical2.getX()));
+//
 
                                         Rect roi_rect = new Rect(left, top, right, bottom);
                                         Rect rect = null;
@@ -293,25 +304,25 @@ public class OpenCamera extends CameraActivity {
                                                     }
                                                 });
 
-//                                                runOnUiThread(new Runnable() {
-//                                                    @Override
-//                                                    public void run() {
-//                                                        Toast.makeText(OpenCamera.this, "Keep your face still", Toast.LENGTH_SHORT).show();
-//                                                    }
-//                                                });
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        Toast.makeText(OpenCamera.this, "Keep your face still", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
 
                                             }
-//                                            Utils.matToBitmap(mat_processing_face, processed_bitmap);
-//                                            runOnUiThread(new Runnable() {
-//                                                @Override
-//                                                public void run() {
-//                                                    try{
-//                                                        img_processing_face.setImageBitmap(processed_bitmap);
-//                                                    } catch (Exception e) {
-//                                                        e.printStackTrace();
-//                                                    }
-//                                                }
-//                                            });
+                                            Utils.matToBitmap(mat_processing_face, processed_bitmap);
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try{
+                                                        img_processing_face.setImageBitmap(processed_bitmap);
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                            });
                                         }
                                     }
                                 })
@@ -419,33 +430,41 @@ public class OpenCamera extends CameraActivity {
                    matrix,
                    true);
 
-           // Save the bitmap to the gallery
-           OutputStream fileOutputStream;
-           try{
-               if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                   ContentResolver resolver = getContentResolver();
-                   ContentValues contentValues = new ContentValues();
-                   contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileNameForSave);
-                   contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
-                   Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-                   fileOutputStream = resolver.openOutputStream(Objects.requireNonNull(imageUri));
-                   rotatedBimap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                   Objects.requireNonNull(fileOutputStream);
-               }
-           } catch (FileNotFoundException e) {
-               throw new RuntimeException(e);
-           }
+
+
+//           // Save the bitmap to the gallery
+//           OutputStream fileOutputStream;
+//           try{
+//               if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                   ContentResolver resolver = getContentResolver();
+//                   ContentValues contentValues = new ContentValues();
+//                   contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileNameForSave);
+//                   contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
+//                   Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+//                   fileOutputStream = resolver.openOutputStream(Objects.requireNonNull(imageUri));
+//                   rotatedBimap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+//                   Objects.requireNonNull(fileOutputStream);
+//               }
+//           } catch (FileNotFoundException e) {
+//               throw new RuntimeException(e);
+//           }
 
            // Convert bitmap to array
            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-           rotatedBimap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+           rotatedBimap.compress(Bitmap.CompressFormat.JPEG, 95, stream);
            byte[] byteArray = stream.toByteArray();
 
-           // Send the converted bitmap to another activity
+//            Send the converted bitmap to another activity
 //           cameraBridgeViewBase.disableView();
-           Intent FaceReusltintent = new Intent(this, FaceResult.class);
-           FaceReusltintent.putExtra("userface", byteArray);
-           startActivity(FaceReusltintent);
+           try {
+               Intent FaceReusltintent = new Intent(this, FaceResult.class);
+               FaceReusltintent.putExtra("userface", byteArray);
+               startActivity(FaceReusltintent);
+
+           } catch (Exception e) {
+               Log.d("ERROR IMAGE", e.toString());
+           }
+
 
        }
 
