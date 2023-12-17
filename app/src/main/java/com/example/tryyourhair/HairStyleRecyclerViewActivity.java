@@ -107,37 +107,41 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
                 call.enqueue(new Callback<HairstyleDataCallFromAPI>() {
                     @Override
                     public void onResponse(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Response<HairstyleDataCallFromAPI> response) {
-                        assert response.body() != null;
-                        ArrayList<HairstyleDataCallFromAPI.data> Hairstyles = response.body().getHairstyles();
-                        Log.d("LENGTH", String.valueOf(Hairstyles.size()));
-                        for (int i = 0; i < Hairstyles.size(); i++) {
-                            Log.d("TEST",  Hairstyles.get(i).get_id());
-                            Log.d("NAME", Hairstyles.get(i).getName());
-                            Log.d("CELEB", Hairstyles.get(i).getCelebrity());
+                        try {
+                            assert response.body() != null;
+                            ArrayList<HairstyleDataCallFromAPI.data> Hairstyles = response.body().getHairstyles();
+                            Log.d("LENGTH", String.valueOf(Hairstyles.size()));
+                            for (int i = 0; i < Hairstyles.size(); i++) {
+                                Log.d("TEST",  Hairstyles.get(i).get_id());
+                                Log.d("NAME", Hairstyles.get(i).getName());
+                                Log.d("CELEB", Hairstyles.get(i).getCelebrity());
 
-                            listHairStyle.add(new HairStyle(
-                                    Hairstyles.get(i).getName(),
-                                    Hairstyles.get(i).get_id(),
-                                    Hairstyles.get(i).getUrl(),
-                                    Hairstyles.get(i).getDes(),
-                                    Hairstyles.get(i).getTrending(),
-                                    Hairstyles.get(i).getCelebrity(),
-                                    Hairstyles.get(i).getCategory()
-                            ));
+                                listHairStyle.add(new HairStyle(
+                                        Hairstyles.get(i).getName(),
+                                        Hairstyles.get(i).get_id(),
+                                        Hairstyles.get(i).getUrl(),
+                                        Hairstyles.get(i).getDes(),
+                                        Hairstyles.get(i).getTrending(),
+                                        Hairstyles.get(i).getCelebrity(),
+                                        Hairstyles.get(i).getCategory()
+                                ));
 
-                            hairStyleAdapter = new HairStyleAdapter(
-                                    HairStyleRecyclerViewActivity.this,
-                                    listHairStyle,
-                                    HairStyleRecyclerViewActivity.this);
+                                hairStyleAdapter = new HairStyleAdapter(
+                                        HairStyleRecyclerViewActivity.this,
+                                        listHairStyle,
+                                        HairStyleRecyclerViewActivity.this);
 
-                            rvHairStyle.setAdapter(hairStyleAdapter);
+                                rvHairStyle.setAdapter(hairStyleAdapter);
 
-                    // Recycler view scroll vertical
+                                // Recycler view scroll vertical
 //                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(HairStyleRecyclerViewActivity.this, LinearLayoutManager.VERTICAL, false);
 
-                            // Use GridLayout
-                            GridLayoutManager gridLayoutManager = new GridLayoutManager(HairStyleRecyclerViewActivity.this, 2);
-                            rvHairStyle.setLayoutManager(gridLayoutManager);
+                                // Use GridLayout
+                                GridLayoutManager gridLayoutManager = new GridLayoutManager(HairStyleRecyclerViewActivity.this, 2);
+                                rvHairStyle.setLayoutManager(gridLayoutManager);
+                        }
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
                         }
                     }
 

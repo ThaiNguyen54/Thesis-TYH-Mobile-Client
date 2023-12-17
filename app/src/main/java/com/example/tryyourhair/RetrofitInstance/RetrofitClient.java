@@ -12,7 +12,7 @@ public class RetrofitClient {
     // Unsafe OkHttp Client is used for accepting self-signed certificate Nodejs server
     private static OkHttpClient okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
 
-   private static String BASE_URL = "https://192.168.1.11:7001/";
+   private static String BASE_URL = "https://192.168.1.13:7001/";
 
 //    private static String BASE_URL = "https://geminisoftvn.ddns.net:7001/";
 

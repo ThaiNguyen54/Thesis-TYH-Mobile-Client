@@ -6,11 +6,11 @@
     tools:context=".HairStyleCardView"
     android:id="@+id/card1"
     style="?attr/materialCardViewElevatedStyle"
-    android:layout_width="195dp"
+    android:layout_width="250dp"
     android:layout_height="wrap_content"
     app:cardCornerRadius="5dp"
     android:layout_marginTop="10dp"
-    android:layout_marginLeft="5dp"
+    android:layout_marginLeft="50dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     >
@@ -19,10 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/img_hairstyle"
-            android:layout_width="239dp"
+            android:layout_width="250dp"
             android:layout_height="215dp"
             android:contentDescription="Really good"
             app:layout_constraintBottom_toTopOf="@id/ln_information"

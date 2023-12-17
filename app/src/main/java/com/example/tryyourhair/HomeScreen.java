@@ -107,7 +107,12 @@ public class HomeScreen extends AppCompatActivity {
         chose_hairstyle_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OpenListHairActivity();
+                try {
+                    OpenListHairActivity();
+                } catch (Exception e) {
+                    Log.d("ERROR HOME", e.toString());
+                }
+
             }
         });
 
