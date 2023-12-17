@@ -11,9 +11,9 @@ public interface Methods {
 //    @GET("ver1/hairstyle")
 //    Call <TestAPIHairstyle> getAllData();
 
-    @GET("ver1/hairstyle")
+    @GET("/shair-engine/ver1/hairstyle")
     Call <HairstyleDataCallFromAPI> getAllData();
 
-    @POST("ver1/generate_hair")
+    @POST("/shair-engine/ver1/generate_hair")
     Call<GenerationData> postGenerationData(@Body GenerationData generationData);
 }
