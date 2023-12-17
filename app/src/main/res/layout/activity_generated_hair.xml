@@ -87,7 +87,7 @@
                 <ImageView
                     android:id="@+id/img_generated_hair"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="700dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/img_ex1" />
