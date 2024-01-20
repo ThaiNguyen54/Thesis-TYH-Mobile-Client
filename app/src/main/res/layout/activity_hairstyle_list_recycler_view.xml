@@ -6,14 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".HairStyleRecyclerViewActivity">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/ln_hairstylelist">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,28 +39,50 @@
                 app:queryHint="search hairstyle"
                 android:background="@drawable/search_bg"
                 app:iconifiedByDefault="false"/>
-
-
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
 
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tab">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tabAll"
+                    android:text="All"
+                    />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tabMale"
+                    android:text="Male" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tabFemale"
+                    android:text="Female" />
+
+            </com.google.android.material.tabs.TabLayout>
+        </LinearLayout>
 
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:rowCount="2"
             android:columnCount="2">
-
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/rv_hairstyle">
-
             </androidx.recyclerview.widget.RecyclerView>
-
         </GridLayout>
-
-
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

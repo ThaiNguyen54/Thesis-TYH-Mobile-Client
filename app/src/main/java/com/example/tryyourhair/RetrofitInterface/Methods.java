@@ -14,6 +14,12 @@ public interface Methods {
     @GET("/shair-engine/ver1/hairstyle")
     Call <HairstyleDataCallFromAPI> getAllData();
 
+    @GET("/shair-engine/ver1/hairstyle/Male")
+    Call <HairstyleDataCallFromAPI> getMaleHairStyle();
+
+    @GET("/shair-engine/ver1/hairstyle/Female")
+    Call <HairstyleDataCallFromAPI> getFemaleHairStyle();
+
     @POST("/shair-engine/ver1/generate_hair")
     Call<GenerationData> postGenerationData(@Body GenerationData generationData);
 }
