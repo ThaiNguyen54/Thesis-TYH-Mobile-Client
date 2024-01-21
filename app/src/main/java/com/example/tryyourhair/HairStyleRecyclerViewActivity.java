@@ -35,6 +35,7 @@ import com.example.tryyourhair.RetrofitInterface.Methods;
 import com.example.tryyourhair.Singleton.Singleton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.search.SearchBar;
+import com.google.android.material.tabs.TabLayout;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -51,6 +52,7 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
     private HairStyleAdapter hairStyleAdapter;
     private List<HairStyle> listHairStyle;
     private ImageView img_home;
+    private TabLayout tab;
     private androidx.appcompat.widget.SearchView searchView;
     Singleton singleton;
 
@@ -68,6 +70,7 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
         img_home = findViewById(R.id.img_home);
         singleton = Singleton.getInstance();
         searchView = findViewById(R.id.search_view);
+        tab = findViewById(R.id.tab);
         searchView.clearFocus();
 
         searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
@@ -154,7 +157,171 @@ public class HairStyleRecyclerViewActivity extends AppCompatActivity implements 
         });
         GetAllHairStyleThread.start();
 
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        Thread GetAllHairStyleThread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                rvHairStyle = (RecyclerView) findViewById(R.id.rv_hairstyle);
+                                listHairStyle = new ArrayList<>();
+
+                                // Call API get Hairstyle
+                                Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
+                                Call<HairstyleDataCallFromAPI> call = methods.getAllData();
+                                call.enqueue(new Callback<HairstyleDataCallFromAPI>() {
+                                    @Override
+                                    public void onResponse(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Response<HairstyleDataCallFromAPI> response) {
+                                        assert response.body() != null;
+                                        ArrayList<HairstyleDataCallFromAPI.data> Hairstyles = response.body().getHairstyles();
+                                        for (int i = 0; i < Hairstyles.size(); i++) {
+                                            listHairStyle.add(new HairStyle(
+                                                    Hairstyles.get(i).getName(),
+                                                    Hairstyles.get(i).get_id(),
+                                                    Hairstyles.get(i).getUrl(),
+                                                    Hairstyles.get(i).getDes(),
+                                                    Hairstyles.get(i).getTrending(),
+                                                    Hairstyles.get(i).getCelebrity(),
+                                                    Hairstyles.get(i).getCategory()
+                                            ));
+
+                                            hairStyleAdapter = new HairStyleAdapter(
+                                                    HairStyleRecyclerViewActivity.this,
+                                                    listHairStyle,
+                                                    HairStyleRecyclerViewActivity.this);
+
+                                            rvHairStyle.setAdapter(hairStyleAdapter);
+
+                                            // Use GridLayout
+                                            GridLayoutManager gridLayoutManager = new GridLayoutManager(HairStyleRecyclerViewActivity.this, 2);
+                                            rvHairStyle.setLayoutManager(gridLayoutManager);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Throwable t) {
+
+                                    }
+                                });
+                            }
+                        });
+                        GetAllHairStyleThread.start();
+
+                        break;
+                    case 1:
+                        Thread GetMaleHairStyleThread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                rvHairStyle = (RecyclerView) findViewById(R.id.rv_hairstyle);
+                                listHairStyle = new ArrayList<>();
+
+                                // Call API get Hairstyle
+                                Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
+                                Call<HairstyleDataCallFromAPI> call = methods.getMaleHairStyle();
+                                call.enqueue(new Callback<HairstyleDataCallFromAPI>() {
+                                    @Override
+                                    public void onResponse(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Response<HairstyleDataCallFromAPI> response) {
+                                        assert response.body() != null;
+                                        ArrayList<HairstyleDataCallFromAPI.data> Hairstyles = response.body().getHairstyles();
+                                        for (int i = 0; i < Hairstyles.size(); i++) {
+                                            listHairStyle.add(new HairStyle(
+                                                    Hairstyles.get(i).getName(),
+                                                    Hairstyles.get(i).get_id(),
+                                                    Hairstyles.get(i).getUrl(),
+                                                    Hairstyles.get(i).getDes(),
+                                                    Hairstyles.get(i).getTrending(),
+                                                    Hairstyles.get(i).getCelebrity(),
+                                                    Hairstyles.get(i).getCategory()
+                                            ));
+
+                                            hairStyleAdapter = new HairStyleAdapter(
+                                                    HairStyleRecyclerViewActivity.this,
+                                                    listHairStyle,
+                                                    HairStyleRecyclerViewActivity.this);
+
+                                            rvHairStyle.setAdapter(hairStyleAdapter);
+
+                                            // Use GridLayout
+                                            GridLayoutManager gridLayoutManager = new GridLayoutManager(HairStyleRecyclerViewActivity.this, 2);
+                                            rvHairStyle.setLayoutManager(gridLayoutManager);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Throwable t) {
+
+                                    }
+                                });
+                            }
+                        });
+                        GetMaleHairStyleThread.start();
+                        break;
+                    case 2:
+                        Thread GetFemaleHairStyleThread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                rvHairStyle = (RecyclerView) findViewById(R.id.rv_hairstyle);
+                                listHairStyle = new ArrayList<>();
+
+                                // Call API get Hairstyle
+                                Methods methods = RetrofitClient.getRetrofitInstance().create(Methods.class);
+                                Call<HairstyleDataCallFromAPI> call = methods.getFemaleHairStyle();
+                                call.enqueue(new Callback<HairstyleDataCallFromAPI>() {
+                                    @Override
+                                    public void onResponse(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Response<HairstyleDataCallFromAPI> response) {
+                                        assert response.body() != null;
+                                        ArrayList<HairstyleDataCallFromAPI.data> Hairstyles = response.body().getHairstyles();
+                                        for (int i = 0; i < Hairstyles.size(); i++) {
+                                            listHairStyle.add(new HairStyle(
+                                                    Hairstyles.get(i).getName(),
+                                                    Hairstyles.get(i).get_id(),
+                                                    Hairstyles.get(i).getUrl(),
+                                                    Hairstyles.get(i).getDes(),
+                                                    Hairstyles.get(i).getTrending(),
+                                                    Hairstyles.get(i).getCelebrity(),
+                                                    Hairstyles.get(i).getCategory()
+                                            ));
+
+                                            hairStyleAdapter = new HairStyleAdapter(
+                                                    HairStyleRecyclerViewActivity.this,
+                                                    listHairStyle,
+                                                    HairStyleRecyclerViewActivity.this);
+
+                                            rvHairStyle.setAdapter(hairStyleAdapter);
+
+                                            // Use GridLayout
+                                            GridLayoutManager gridLayoutManager = new GridLayoutManager(HairStyleRecyclerViewActivity.this, 2);
+                                            rvHairStyle.setLayoutManager(gridLayoutManager);
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(@NonNull Call<HairstyleDataCallFromAPI> call, @NonNull Throwable t) {
+
+                                    }
+                                });
+                            }
+                        });
+                        GetFemaleHairStyleThread.start();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
     }
+
 
     @Override
     public void onBackPressed() {
